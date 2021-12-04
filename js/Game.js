@@ -23,6 +23,16 @@ getRandomPhrase () {
   return this.phrases[Math.floor(Math.random() * this.phrases.length)];
 }
 
+/**
+* Begins game by selecting a random phrase and displaying it to user
+*/
+startGame() {
+  const overlay = document.getElementById("overlay");
+  const randomPhrase = this.getRandomPhrase().phrase;
+  overlay.style.display = "none";
+  this.activePhrase = new Phrase(randomPhrase);
+  this.activePhrase.addPhraseToDisplay();
+  }
 }
 
 
