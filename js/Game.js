@@ -15,7 +15,6 @@ class Game {
     this.activePhrase = null;
   }
 
-
 /**
 * Selects random phrase from phrases property
 * @return {Object} Phrase object chosen to be used
