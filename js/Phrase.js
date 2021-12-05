@@ -10,7 +10,7 @@ class Phrase {
 /**
 * Display phrase on game board
 */
-addPhraseToDisplay (randomPhrase) {
+addPhraseToDisplay () {
   const ul = document.querySelector("#phrase ul")
   for (let i = 0; i < this.phrase.length; i++) {
     if (this.phrase.charAt(i) === " ") {
