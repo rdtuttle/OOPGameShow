@@ -38,16 +38,13 @@ startGame() {
 * @return {boolean} True if game has been won, false if game wasn't
 won
 */
-checkForWin(){
-  let win = true;
-  const LetterBoxes = document.querySelectorAll('.letter')
-  LetterBoxes.forEach(letter => {
-  let hidden = letter.classList.contains("hide")
-      if(hidden){
-          win = false
-      }
-  })
-  this.gameOver("win");
+checkForWin()  { 
+  const letters = document.getElementsByClassName("hide letter");
+  if (letters.length === 0) {
+  return true;
+} else {
+  return false;
+}
 }
   
 
@@ -74,11 +71,11 @@ gameOver(WinLose) {
   const overlay = document.getElementById("overlay");
   const randomPhrase = this.getRandomPhrase().phrase;
   const h1 = document.getElementById("game-over-message")
-  if (WinLose === "win") {
+  if (WinLose === true) {
   overlay.style.display = "block";
   const h1 = document.getElementById("game-over-message")
   overlay.className = "win"
-  h1.innerHTML = "Good job!"
+  h1.innerHTML = "Good job! You won!"
   } else {
   overlay.style.display = "block";
   const h1 = document.getElementById("game-over-message")
@@ -92,12 +89,22 @@ gameOver(WinLose) {
 * Handles onscreen keyboard button clicks
 * @param (HTMLButtonElement) button - The clicked button element
 */
-handleInteraction(button) {
-  console.log(button);
-  };
-
+handleInteraction(e) {
+  if(game.activePhrase.checkLetter(e.textContent)){
+    e.className = "chosen";
+    game.activePhrase.showMatchedLetter(e.textContent);
+    if (this.checkForWin()){
+      this.gameOver(true);
+    }
+    if (this.missed > 4) {
+      this.gameOver(false);
+    }
+  } else {
+    e.className = "wrong";
+    this.removeLife();
+  }
 };
 
-
+}
 
 
