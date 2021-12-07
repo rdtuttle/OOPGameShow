@@ -28,6 +28,33 @@ addPhraseToDisplay () {
   }
 }
 
+/**
+* Checks if passed letter is in phrase
+* @param (string) letter - Letter to check
+*/
+checkLetter(selectedLetter){
+  let doesLetterMatch = false
+  this.phrase.split("").forEach(letter => {
+     if(letter === selectedLetter){
+         doesLetterMatch = true
+     } 
+ })
+ return doesLetterMatch
+}
+
+/**
+* Displays passed letter on screen after a match is found
+* @param (string) letter - Letter to display
+*/
+showMatchedLetter(selectedLetter) {
+  const LetterBox = document.querySelectorAll('.letter')
+    LetterBox.forEach(letter => {
+      if (letter.classList.contains(selectedLetter)){
+          letter.classList.remove("hide")
+          letter.classList.add("show")
+      } 
+    })
+  }
 
 
 }
