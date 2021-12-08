@@ -27,6 +27,7 @@ getRandomPhrase () {
 * Begins game by selecting a random phrase and displaying it to user
 */
 startGame() {
+  this.reset();
   const overlay = document.getElementById("overlay");
   const randomPhrase = this.getRandomPhrase().phrase;
   overlay.style.display = "none";
@@ -105,6 +106,18 @@ handleInteraction(e) {
   }
 };
 
+reset() {
+  const ul = document.getElementById("phrase").firstElementChild
+  ul.textContent= "";
+  const hearts = document.querySelectorAll('.tries')
+  hearts.forEach(heart => {
+    heart.childNodes[0].src = "images/liveHeart.png";
+  });
+  const keys = document.querySelectorAll(".key, .wrong, .chosen")
+  keys.forEach(key => {
+    key.classList = "key"
+  })
+  
 }
 
-
+}
