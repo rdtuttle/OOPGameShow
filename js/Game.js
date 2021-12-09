@@ -102,8 +102,9 @@ handleInteraction(e) {
     }
   } else {
     e.className = "wrong";
-    this.removeLife();
-  }
+    this.removeLife()
+    }
+    e.disabled = true 
 };
 
 reset() {

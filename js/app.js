@@ -16,3 +16,11 @@ document.getElementById('qwerty').addEventListener('click', (e) => {
   }
 })
 
+window.addEventListener('keyup', (e) => {
+  const keyboard = document.querySelectorAll('.keyrow button');
+  [...keyboard].forEach(key => {
+    if (key.textContent === e.key) {
+      game.handleInteraction(key);
+    }
+  })
+});
