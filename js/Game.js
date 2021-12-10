@@ -14,7 +14,6 @@ class Game {
     ];
     this.activePhrase = null;
   }
-
 /**
 * Selects random phrase from phrases property
 * @return {Object} Phrase object chosen to be used
@@ -22,7 +21,6 @@ class Game {
 getRandomPhrase () {
   return this.phrases[Math.floor(Math.random() * this.phrases.length)];
 }
-
 /**
 * Begins game by selecting a random phrase and displaying it to user
 */
@@ -47,8 +45,6 @@ checkForWin()  {
   return false;
 }
 }
-  
-
 /**
 * Increases the value of the missed property
 * Removes a life from the scoreboard
@@ -61,9 +57,7 @@ removeLife() {
   if (this.missed === 5) {
     this.gameOver("lose");
   }
-
 }
-
 /**
 * Displays game over message
 * @param {boolean} gameWon - Whether or not the user won the game
@@ -73,40 +67,39 @@ gameOver(WinLose) {
   const randomPhrase = this.getRandomPhrase().phrase;
   const h1 = document.getElementById("game-over-message")
   if (WinLose === true) {
-  overlay.style.display = "block";
-  const h1 = document.getElementById("game-over-message")
-  overlay.className = "win"
-  h1.innerHTML = "Good job! You won!"
+    overlay.style.display = "block";
+    const h1 = document.getElementById("game-over-message")
+    overlay.className = "win"
+    h1.innerHTML = "Good job! You won!"
   } else {
-  overlay.style.display = "block";
-  const h1 = document.getElementById("game-over-message")
-  overlay.className = "lose"
-  h1.innerHTML = "Sorry you lost, better luck next time"
+    overlay.style.display = "block";
+    const h1 = document.getElementById("game-over-message")
+    overlay.className = "lose"
+    h1.innerHTML = "Sorry you lost, better luck next time"
   }
     
   }
-
 /**
 * Handles onscreen keyboard button clicks
 * @param (HTMLButtonElement) button - The clicked button element
 */
 handleInteraction(e) {
-  if(game.activePhrase.checkLetter(e.textContent)){
+  if(this.activePhrase.checkLetter(e.textContent)){
     e.className = "chosen";
-    game.activePhrase.showMatchedLetter(e.textContent);
+    this.activePhrase.showMatchedLetter(e.textContent);
     if (this.checkForWin()){
       this.gameOver(true);
     }
     if (this.missed > 4) {
       this.gameOver(false);
     }
-  } else {
+  }else if (e.disabled === false) {
     e.className = "wrong";
     this.removeLife()
-    }
-    e.disabled = true 
+    } 
+  e.disabled = true
 };
-
+//resets all field after Game ends
 reset() {
   const ul = document.getElementById("phrase").firstElementChild
   ul.textContent= "";
@@ -117,8 +110,7 @@ reset() {
   const keys = document.querySelectorAll(".key, .wrong, .chosen")
   keys.forEach(key => {
     key.classList = "key"
+    key.disabled = false;
   })
-  
 }
-
 }

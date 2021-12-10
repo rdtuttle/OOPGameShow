@@ -58,6 +58,7 @@ button {
   -o-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
+  box-shadow: 5px 5px 5px grey;
 }
 
 #btn__reset {
@@ -166,7 +167,7 @@ button {
   display: flex;
   flex-direction: column;
   position: fixed;
-  color: #FFFFFF;
+  color: #f9fbfa;
   justify-content: center;
   top: 0;
   bottom: 0;
@@ -176,15 +177,15 @@ button {
 }
 
 .title {
-  color: #FFF;
+  color: #040f29;
 }
 
 .start {
-  background-color: #3a3f58;
+  background-color: hsl(177, 70%, 84%);
 }
 
 .start a {
-  color: #fff;
+  color: hsl(0, 23%, 95%);
 }
 
 .win {

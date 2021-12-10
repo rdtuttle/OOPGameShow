@@ -36,7 +36,7 @@ checkLetter(selectedLetter){
   let doesLetterMatch = false
   this.phrase.split("").forEach(letter => {
      if(letter === selectedLetter){
-         doesLetterMatch = true
+       doesLetterMatch = true
      } 
  })
  return doesLetterMatch
@@ -55,6 +55,4 @@ showMatchedLetter(selectedLetter) {
       } 
     })
   }
-
-
 }
