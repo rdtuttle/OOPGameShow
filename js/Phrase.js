@@ -6,7 +6,6 @@ class Phrase {
   constructor(phrase) {
     this.phrase = phrase.toLowerCase();
   }
-
 /**
 * Display phrase on game board
 */
@@ -27,7 +26,6 @@ addPhraseToDisplay () {
    }
   }
 }
-
 /**
 * Checks if passed letter is in phrase
 * @param (string) letter - Letter to check
@@ -41,7 +39,6 @@ checkLetter(selectedLetter){
  })
  return doesLetterMatch
 }
-
 /**
 * Displays passed letter on screen after a match is found
 * @param (string) letter - Letter to display

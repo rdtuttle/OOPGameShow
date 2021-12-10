@@ -99,7 +99,7 @@ handleInteraction(e) {
     } 
   e.disabled = true
 };
-//resets all field after Game ends
+//resets all fields after Game ends
 reset() {
   const ul = document.getElementById("phrase").firstElementChild
   ul.textContent= "";
